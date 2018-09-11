@@ -1,0 +1,54 @@
+CREATE TABLE USER(
+  BPJS varchar2(20) not null enable,
+  Nama varchar2(20),
+  Email varchar2(20),
+  Notlp varchar2(13),
+  Password varchar2(20),
+  constraint User_PK primary key (BPJS) enable
+);
+
+CREATE TABLE OBAT(
+  No_obat varchar2(20) not null enable,
+  Nama varchar2(20),
+  Jenis varchar2(20),
+  Stock number,
+  Harga number,
+  Deskripsi varchar2(50),
+  constraint Obat_PK primary key (No_obat) enable
+);
+
+CREATE TABLE LAPORAN(
+  No_laporan varchar2(20) not null enable,
+  Nama varchar2(20),
+  Tanggal date,
+  constraint Laporan_PK primary key (No_laporan) enable
+);
+
+CREATE TABLE TRANSAKSI(
+  No_transaksi varchar2(20) not null enable,
+  No_obat varchar2(20),
+  Jumlah_obat number,
+  Tanggal_transaksi date,
+  Total_harga number,
+  constraint Transaksi_PK primary key (No_transaksi) enable,
+  constraint Transaksi_FK1 foreign key (No_obat) references OBAT (No_obat) on delete cascade enable
+);
+
+CREATE TABLE PEMESANAN(
+  No_pesanan varchar2(20) not null enable,
+  No_transaksi varchar2(20),
+  BPJS varchar2(20),
+  Tanggal_pemesanan date,
+  constraint Pemesanan_PK primary key (No_pesanan) enable,
+  constraint Pemesanan_FK1 foreign key (No_transaksi) references TRANSAKSI (No_transaksi) on delete cascade enable,
+  constraint Pemesanan_FK2 foreign key (BPJS) references USER (BPJS) on delete cascade enable
+);
+
+CREATE TABLE KOMPLAIN (
+  No_komplain varchar2(20) not null enable,
+  Id_user varchar2(20),
+  Komen varchar2(20),
+  constraint KOMPLAIN_FK1 foreign key (BPJS) references USER (BPJS) on delete cascade enable
+ );
+ 
+ 
