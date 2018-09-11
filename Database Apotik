@@ -9,7 +9,7 @@ CREATE TABLE USER(
 
 CREATE TABLE OBAT(
   No_obat varchar2(20) not null enable,
-  Nama varchar2(20),
+  Nama_obat varchar2(20),
   Jenis varchar2(20),
   Stock number,
   Harga number,
@@ -51,4 +51,8 @@ CREATE TABLE KOMPLAIN (
   constraint KOMPLAIN_FK1 foreign key (BPJS) references USER (BPJS) on delete cascade enable
  );
  
- 
+INSERT INTO USER (BPJS, Nama, Email, Notlp, Password) VALUES('0000199282555','Febry','triyadifebry@gmail.com','081395939188','masukpakeko');
+
+Select No_transaksi, Nama_obat, Harga, Harga_total, Jumlah_obat, Tanggal_transaksi
+from TRANSAKSI
+join OBAT using(No_obat);
