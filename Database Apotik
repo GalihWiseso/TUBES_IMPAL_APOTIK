@@ -39,6 +39,7 @@ CREATE TABLE PEMESANAN(
   No_transaksi varchar2(20),
   BPJS varchar2(20),
   Tanggal_pemesanan date,
+  status varchar2(10);
   constraint Pemesanan_PK primary key (No_pesanan) enable,
   constraint Pemesanan_FK1 foreign key (No_transaksi) references TRANSAKSI (No_transaksi) on delete cascade enable,
   constraint Pemesanan_FK2 foreign key (BPJS) references USER (BPJS) on delete cascade enable
