@@ -12,7 +12,7 @@
             $this->load->model('m_pesanan');
 			$this->load->library('session');
         }
-        public function data_obat(){
+        public function index(){
             $data['data']=$this->m_obat->getobat();
             $this->load->view('data_obat',$data);
         }
