@@ -1,19 +1,12 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
-	<title>Apotik Online | Tambah Obat</title>
+	<title>Apotik Online | Admin | Tambah Obat</title>
 	<!--/tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Grocery Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 	<script>
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
@@ -48,10 +41,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 	<!-- top-header -->
 	<div class="header-most-top">
-		<p><span style="margin-left: 50px">Febry Triyadi</span>
+		<p><span style="margin-left: 50px">Admin</span>
 			<a href="data_obat.html" style="float: right; margin-right: 50px;">Logout</a>
-		</p>
-		
+		</p>	
 	</div>
 	<!-- //top-header -->
 	<!-- header-bot-->
@@ -118,22 +110,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<!-- shop locator (popup) -->
-	<!-- Button trigger modal(shop-locator) -->
-	<!-- //shop locator (popup) -->
-	<!-- signin Model -->
-	<!-- Modal1 -->
-	<!-- //Modal1 -->
-	<!-- //signin Model -->
-	<!-- signup Model -->
-	<!-- Modal2 -->
-	<!-- //Modal2 -->
-	<!-- //signup Model -->
-	<!-- //header-bot -->
-	<!-- navigation -->
-	<!-- //navigation -->
-	<!-- banner-2 -->
-	<!-- //banner-2 -->
 	<!-- page -->
 	<div class="services-breadcrumb">
 		<div class="agile_inner_breadcrumb">
@@ -141,10 +117,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<ul class="w3_short">
 					<li>
 						<a href="<?php echo base_url("C_admin/data_obat") ?>">Home</a>
-						<i>|</i>
-					</li>
-					<li>
-						<a href="<?php echo base_url("C_admin/data_obat") ?>">Daftar Obat</a>
 						<i>|</i>
 					</li>
 					<li>
@@ -180,27 +152,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<div class="container" style="padding: 50px">
 
-		<form>
+		<form method="post" action="<?php echo base_url("C_admin/proses_tambah_obat") ?>">
 			<div class="input-group w3_w3layouts">
 				<span class="input-group-addon" id="nama_obat">Nama</span>
-				<input type="text" class="form-control" placeholder="Nama Obat" aria-describedby="basic-addon1">
+				<input type="text" class="form-control" name="nama_obat" placeholder="Nama Obat" aria-describedby="basic-addon1">
+			</div>
+			<div class="input-group w3_w3layouts">
+				<span class="input-group-addon" id="gambar">Input Gambar</span>
+				<input type="text" class="form-control" name="pict" placeholder="Gambar" aria-describedby="basic-addon1">
 			</div>
 			<div class="input-group w3_w3layouts">
 				<span class="input-group-addon" id="jenis">Jenis</span>
-				<input type="text" class="form-control" placeholder="Jenis Obat" aria-describedby="basic-addon1">
+				<input type="text" class="form-control" name="jenis" placeholder="Jenis Obat" aria-describedby="basic-addon1">
 			</div>
 			<div class="input-group w3_w3layouts">
 				<span class="input-group-addon" id="stock">Stock</span>
-				<input type="text" class="form-control" placeholder="Stock" aria-describedby="basic-addon1">
+				<input type="text" class="form-control" name="stock" placeholder="Stock" aria-describedby="basic-addon1">
 			</div>
 			<div class="input-group w3_w3layouts">
 				<span class="input-group-addon">Harga</span>
-				<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+				<input type="text" class="form-control" name="harga" aria-label="Amount (to the nearest dollar)">
 				<span class="input-group-addon">.00</span>
 			</div>
 			<div class="input-group w3_w3layouts">
-				<span class="input-group-addon" id="basic-addon1">Deskripsi</span>
-				<input type="text" class="form-control" placeholder="Deskripsi" aria-describedby="basic-addon1">
+				<span class="input-group-addon" id="deskripsi">Deskripsi</span>
+				<input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" aria-describedby="basic-addon1">
 			</div>
 			<div class="input-group w3-w3layouts col-md-12">
 				<input type='reset' class="btn btn-danger" style="width:50%" value='Batal'/>
@@ -211,7 +187,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //page -->
 	<div class="container">
 		<div class="bs-docs-example">
-		<table class="table table-striped">
+		<table class="table table-hover">
 			<thead>
 			<tr>
 				<th>ID Obat</th>
@@ -220,59 +196,66 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<th>Stock</th>
 				<th>Harga</th>
 				<th>Deskripsi</th>
+				<th>Action</th>
 			</tr>
 			</thead>
+				<?php foreach ($data as $key): ?>
 			<tbody>
 			<tr>	
-				<td>OBT1</td>
-				<td>Panadol</td>
-				<td>Sakit Kepala</td>
-				<td>50</td>
-				<td>Rp 5.000</td>
-				<td>Obat pereda sakit kepala dan deman, dosis tinggi</td>
-			</tr>
-			<tr>
-				<td>OBT2</td>
-				<td>Amoxilin</td>
-				<td>Pegal-pegal</td>
-				<td>25</td>
-				<td>Rp 3.000</td>
-				<td>Obat pereda pegal linu badan, punggung dan kaki</td>
-			</tr>
-			<tr>
-				<td>OBT3</td>
-				<td>Promag</td>
-				<td>Sakit maag</td>
-				<td>55</td>
-				<td>Rp 7.000</td>
-				<td>Obat sakit perut melilit di karenakan telat makan</td>
-			</tr>
-			<tr>
-				<td>OBT4</td>
-				<td>Diapet</td>
-				<td>Sakit mencret</td>
-				<td>65</td>
-				<td>Rp 10.000</td>
-				<td>Obat sakit perut mencret-mencret</td>
-			</tr>
-			<tr>
-				<td>OBT4</td>
-				<td>Diapet</td>
-				<td>Sakit mencret</td>
-				<td>65</td>
-				<td>Rp 10.000</td>
-				<td>Obat sakit perut mencret-mencret</td>
-			</tr>
-			<tr>
-				<td>OBT5</td>
-				<td>Betadine</td>
-				<td>Sakit luka berdarah</td>
-				<td>100</td>
-				<td>Rp 5.000</td>
-				<td>Obat sakit luka berdarah</td>
+				<td>OBT<?php echo $key->no_obat; ?></td>
+				<td><?php echo $key->nama_obat; ?></td>
+				<td><?php echo $key->jenis; ?></td>
+				<td><?php echo $key->stock; ?></td>
+				<td><?php echo $key->harga; ?></td>
+				<td><?php echo $key->deskripsi; ?></td>
+				<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $key->no_obat; ?>"><i class="glyphicon glyphicon-pencil"></i></button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus<?php echo $key->no_obat; ?>"><i class="glyphicon glyphicon-trash"></i></button></td>
 			</tr>
 			</tbody>
+				<?php endforeach; ?>
 		</table>
+		<div id="edit" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"></button>
+                        <h4 class="modal-title">Edit Transaksi</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <form method="post" action="http://localhost/care1/C_transaksi/proses_update_pesanan">
+                        <input type="hidden" name="pesanan_id" value="<?php echo $key->pesanan_id; ?>">
+                        <div class="col-md-8">
+                        <center>
+                            <select class="form-control" name="proses">
+                                <option value="On Proses">On Proses</option>
+                                <option value="Delived">Delived</option>
+                                <option value="Done">Done</option>
+                            </select>
+                        </center>
+                        </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="delete" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"></button>
+                        <h4 class="modal-title">Anda Ingin Menghapus?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <form method="post" action="http://localhost/care1/C_transaksi/proses_delete_pesanan">
+                        <button type="button" data-dismiss="modal" class="btn btn-danger">Cancel</button>
+                        <input type="hidden" name="pesanan_id" class="form-control" value=<?php echo "'".$key->pesanan_id."'"; ?>>
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 		</div>
 	</div>
 	<br>
@@ -288,83 +271,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<!-- js-files -->
 	<!-- jquery -->
-	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="<?php echo base_url("js/jquery-2.1.4.min.js") ?>"></script>
 	<!-- //jquery -->
 
-	<!-- popup modal (for signin & signup)-->
-	<script src="js/jquery.magnific-popup.js"></script>
-	<script>
-		$(document).ready(function () {
-			$('.popup-with-zoom-anim').magnificPopup({
-				type: 'inline',
-				fixedContentPos: false,
-				fixedBgPos: true,
-				overflowY: 'auto',
-				closeBtnInside: true,
-				preloader: false,
-				midClick: true,
-				removalDelay: 300,
-				mainClass: 'my-mfp-zoom-in'
-			});
-
-		});
-	</script>
-	<!-- Large modal -->
-	<!-- <script>
-		$('#').modal('show');
-	</script> -->
-	<!-- //popup modal (for signin & signup)-->
-
-	<!-- cart-js -->
-	<script src="js/minicart.js"></script>
-	<script>
-		paypalm.minicartk.render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
-
-		paypalm.minicartk.cart.on('checkout', function (evt) {
-			var items = this.items(),
-				len = items.length,
-				total = 0,
-				i;
-
-			// Count the number of each item in the cart
-			for (i = 0; i < len; i++) {
-				total += items[i].get('quantity');
-			}
-
-			if (total < 3) {
-				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-				evt.preventDefault();
-			}
-		});
-	</script>
-	<!-- //cart-js -->
-
-	<!-- password-script -->
-	<script>
-		window.onload = function () {
-			document.getElementById("password1").onchange = validatePassword;
-			document.getElementById("password2").onchange = validatePassword;
-		}
-
-		function validatePassword() {
-			var pass2 = document.getElementById("password2").value;
-			var pass1 = document.getElementById("password1").value;
-			if (pass1 != pass2)
-				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-			else
-				document.getElementById("password2").setCustomValidity('');
-			//empty string means no validation error
-		}
-	</script>
-	<!-- //password-script -->
-
 	<!-- smoothscroll -->
-	<script src="js/SmoothScroll.min.js"></script>
+	<script src="<?php echo base_url("js/SmoothScroll.min.js") ?>"></script>
 	<!-- //smoothscroll -->
 
 	<!-- start-smooth-scrolling -->
-	<script src="js/move-top.js"></script>
-	<script src="js/easing.js"></script>
+	<script src="<?php echo base_url("js/move-top.js") ?>"></script>
+	<script src="<?php echo base_url("js/easing.js") ?>"></script>
 	<script>
 		jQuery(document).ready(function ($) {
 			$(".scroll").click(function (event) {
@@ -398,7 +314,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //smooth-scrolling-of-move-up -->
 
 	<!-- for bootstrap working -->
-	<script src="js/bootstrap.js"></script>
+	<script src="<?php echo base_url("js/bootstrap.js") ?>"></script>
 	<!-- //for bootstrap working -->
 	<!-- //js-files -->
 
