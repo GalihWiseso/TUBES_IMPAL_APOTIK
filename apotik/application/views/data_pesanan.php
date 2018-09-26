@@ -1,19 +1,11 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
-	<title>Grocery Shoppy an Ecommerce Category Bootstrap Responsive Web Template | Typography :: w3layouts</title>
+	<title>Apotik Online | Admin | Data Pemesanan</title>
 	<!--/tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Grocery Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 	<script>
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
@@ -48,7 +40,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 	<!-- top-header -->
 	<div class="header-most-top">
-		<p>Febry Triyadi</p>
+		<p><span style="margin-left: 50px">Admin</span>
+			<a href="data_obat.html" style="float: right; margin-right: 50px;">Logout</a>
+		</p>
 	</div>
 	<!-- //top-header -->
 	<!-- header-bot-->
@@ -60,7 +54,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<a href="index.html">
 						<span>A</span>potik
 						<span>O</span>nline
-						<img src="images/logo2.png" alt=" ">
+						<img src="http://localhost/apotik/css/img/obatpil.jpg" alt=" " style="width: 130px">
 					</a>
 				</h1>
 			</div>
@@ -115,22 +109,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<!-- shop locator (popup) -->
-	<!-- Button trigger modal(shop-locator) -->
-	<!-- //shop locator (popup) -->
-	<!-- signin Model -->
-	<!-- Modal1 -->
-	<!-- //Modal1 -->
-	<!-- //signin Model -->
-	<!-- signup Model -->
-	<!-- Modal2 -->
-	<!-- //Modal2 -->
-	<!-- //signup Model -->
-	<!-- //header-bot -->
-	<!-- navigation -->
-	<!-- //navigation -->
-	<!-- banner-2 -->
-	<!-- //banner-2 -->
 	<!-- page -->
 	<div class="services-breadcrumb">
 		<div class="agile_inner_breadcrumb">
@@ -138,10 +116,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<ul class="w3_short">
 					<li>
 						<a href="<?php echo base_url("C_admin/data_obat") ?>">Home</a>
-						<i>|</i>
-					</li>
-					<li>
-						<a href="<?php echo base_url("C_admin/data_obat") ?>">Daftar Obat</a>
 						<i>|</i>
 					</li>
 					<li>
@@ -175,62 +149,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<th>Nama obat</th>
 				<th>Jumlah</th>
 				<th>Total Harga</th>
+				<th>Alamat Kirim</th>
+				<th>Tanggal</th>
 				<th>Status</th>
 				<th>Action</th>
 			</tr>
 			</thead>
+				<?php foreach ($data as $key): ?>
 			<tbody>
 			<tr>	
-				<td>PSN1</td>
-				<td>Febry</td>
-				<td>Panadol</td>
-				<td>5</td>
-				<td>Rp 25.000</td>
-				<td>On Proses</td>
+				<td>PSN<?php echo $key->no_pesanan; ?></td>
+				<td><?php echo $key->nama; ?></td>
+				<td><?php echo $key->nama_obat; ?></td>
+				<td><?php echo $key->jumlah; ?></td>
+				<td>Rp <?php echo $key->total_harga; ?></td>
+				<td><?php echo $key->alamat_kirim; ?></td>
+				<td><?php echo $key->tanggal_pemesanan; ?></td>
+				<td><?php echo $key->status; ?></td>
 				<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit"><i class="glyphicon glyphicon-pencil"></i></button>
                 	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i></button></td>
 			</tr>
-			<tr>
-				<td>PSN2</td>
-				<td>Linggis</td>
-				<td>Amoxilin</td>
-				<td>5</td>
-				<td>Rp 15.000</td>
-				<td>Delived</td>
-				<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit"><i class="glyphicon glyphicon-pencil"></i></button>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i></button></td>
-			</tr>
-			<tr>
-				<td>PSN3</td>
-				<td>Nisrina</td>
-				<td>Promag</td>
-				<td>5</td>
-				<td>Rp 35.000</td>
-				<td>Done</td>
-				<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit"><i class="glyphicon glyphicon-pencil"></i></button>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i></button></td>
-			</tr>
-			<tr>
-				<td>PSN4</td>
-				<td>Beta</td>
-				<td>Panadol</td>
-				<td>10</td>
-				<td>Rp 50.000</td>
-				<td>Done</td>
-				<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit"><i class="glyphicon glyphicon-pencil"></i></button>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i></button></td>
-			</tr>
-			<tr>
-				<td>PSN5</td>
-				<td>Gita</td>
-				<td>Promag</td>
-				<td>1</td>
-				<td>Rp 7.000</td>
-				<td>On Proses</td>
-				<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit"><i class="glyphicon glyphicon-pencil"></i></button>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i></button></td>
-			</tr>
 			</tbody>
+				<?php endforeach; ?>
 		</table>
 		<div id="edit" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -305,73 +245,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- jquery -->
 	<script src="js/jquery-2.1.4.min.js"></script>
 	<!-- //jquery -->
-
-	<!-- popup modal (for signin & signup)-->
-	<script src="js/jquery.magnific-popup.js"></script>
-	<script>
-		$(document).ready(function () {
-			$('.popup-with-zoom-anim').magnificPopup({
-				type: 'inline',
-				fixedContentPos: false,
-				fixedBgPos: true,
-				overflowY: 'auto',
-				closeBtnInside: true,
-				preloader: false,
-				midClick: true,
-				removalDelay: 300,
-				mainClass: 'my-mfp-zoom-in'
-			});
-
-		});
-	</script>
-	<!-- Large modal -->
-	<!-- <script>
-		$('#').modal('show');
-	</script> -->
-	<!-- //popup modal (for signin & signup)-->
-
-	<!-- cart-js -->
-	<script src="js/minicart.js"></script>
-	<script>
-		paypalm.minicartk.render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
-
-		paypalm.minicartk.cart.on('checkout', function (evt) {
-			var items = this.items(),
-				len = items.length,
-				total = 0,
-				i;
-
-			// Count the number of each item in the cart
-			for (i = 0; i < len; i++) {
-				total += items[i].get('quantity');
-			}
-
-			if (total < 3) {
-				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-				evt.preventDefault();
-			}
-		});
-	</script>
-	<!-- //cart-js -->
-
-	<!-- password-script -->
-	<script>
-		window.onload = function () {
-			document.getElementById("password1").onchange = validatePassword;
-			document.getElementById("password2").onchange = validatePassword;
-		}
-
-		function validatePassword() {
-			var pass2 = document.getElementById("password2").value;
-			var pass1 = document.getElementById("password1").value;
-			if (pass1 != pass2)
-				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-			else
-				document.getElementById("password2").setCustomValidity('');
-			//empty string means no validation error
-		}
-	</script>
-	<!-- //password-script -->
 
 	<!-- smoothscroll -->
 	<script src="js/SmoothScroll.min.js"></script>
