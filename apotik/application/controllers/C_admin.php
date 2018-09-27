@@ -60,6 +60,16 @@
 
         redirect('C_admin/tambahobat');
 	    }
+	public function proses_tambah_komplain(){
+            $data = array(
+                'nama' => $this->input->post('nama'),
+                'komplain' => $this->input->post('komplain'),
+            );
+            $query
+            $this->db->insert('komplain',$data);
+        redirect('C_admin/tambahkomplain');
+	    }	
+		
         public function proses_update_obat(){
             $data = array(
                 'nama_obat' => $this->input->post('nama'),
