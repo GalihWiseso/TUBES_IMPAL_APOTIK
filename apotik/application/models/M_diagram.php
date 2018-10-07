@@ -113,7 +113,6 @@ class M_diagram extends CI_Model {
                 'deskripsi' => $this->input->post('deskripsi'),
                 'pict' => $this->input->post('pict'),
             );
-            $query
             $this->db->insert('obat',$data);
 
         redirect('C_admin/tambahobat');
@@ -150,7 +149,6 @@ class M_diagram extends CI_Model {
                 'total_harga' => $this->input->post('total_harga'),
                 'tanggal' => $this->input->post('tanggal'),
             );
-            $query
             $this->db->insert('laporan',$data);
 
         redirect('C_admin/laporan');
@@ -207,7 +205,6 @@ class M_diagram extends CI_Model {
             $data = array(
                 'kritik' => $this->input->post('kritik'),
             );
-            $query
             $this->db->insert('komplain',$data);
 
         redirect('C_admin/komplain');

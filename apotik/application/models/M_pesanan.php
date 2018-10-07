@@ -6,12 +6,9 @@ class M_pesanan extends CI_Model {
     public function getpesanan() {
         return $this->db->query("select * from pesanan")->result();
     }
-    public function search_mobil($nama,$harga){
-        return $this->db->query("select * from mobil where nama like '%".$nama."%' or harga <= ".$harga)->result();
-    }
-	public function delete_mobil($id_mobil){
-        $table = 'mobil';
-        $this->db->where('id_mobil', $id_mobil);
+	public function delete_pesanan($no_pesanan){
+        $table = 'pesanan';
+        $this->db->where('no_pesanan', $no_pesanan);
         $delete = $this->db->delete($table);
 
         if ($delete){
