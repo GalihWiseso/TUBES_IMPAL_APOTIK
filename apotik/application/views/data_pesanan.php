@@ -35,6 +35,9 @@
 		text-align: center;
 		color: white;
 	}
+	footer{
+		margin: 25px;
+	}
 </style>
 
 <body>
@@ -177,11 +180,11 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"></button>
-                        <h4 class="modal-title">Edit Transaksi</h4>
+                        <h4 class="modal-title">Edit Pemesanan</h4>
                     </div>
                     <div class="modal-footer">
-                        <form method="post" action="http://localhost/care1/C_transaksi/proses_update_pesanan">
-                        <input type="hidden" name="pesanan_id" value="<?php echo $key->pesanan_id; ?>">
+                        <form method="post">
+                        <input type="hidden" name="no_pesanan" value="<?php echo $key->no_pesanan; ?>">
                         <div class="col-md-8">
                         <center>
                             <select class="form-control" name="proses">
@@ -205,9 +208,9 @@
                         <h4 class="modal-title">Anda Ingin Menghapus?</h4>
                     </div>
                     <div class="modal-footer">
-                        <form method="post" action="http://localhost/care1/C_transaksi/proses_delete_pesanan">
+                        <form method="post">
                         <button type="button" data-dismiss="modal" class="btn btn-danger">Cancel</button>
-                        <input type="hidden" name="pesanan_id" class="form-control" value=<?php echo "'".$key->pesanan_id."'"; ?>>
+                        <input type="hidden" name="no_pesanan" class="form-control" value=<?php echo "'".$key->no_pesanan."'"; ?>>
                         <button type="submit" class="btn btn-primary">Delete</button>
                         </form>
                     </div>
@@ -230,6 +233,58 @@
 		</div>
 		
 	</div>
+	<div class="row">
+	<footer class="footer-distributed" style="background-color: lightgrey;height: 200px;">
+	<div class="fluid-container" style="margin-top: -50px;">
+		<div class="col-md-4">
+		<h1>
+			<a>
+				<span style="color: red;">A</span>potik
+				<span style="color: red;">O</span>nline
+			</a>
+		</h1>
+		</div>
+
+		<div class="col-md-4">
+			<div>
+				<i class="fa fa-map-marker"></i>
+					<span> Jalan Telekomunikasi No 1</span> Bandung, Indonesia
+			</div>
+			<br>
+			<div>
+				<i class="fa fa-phone"></i>
+				+6281395939188
+			</div>
+			<br>
+			<div>
+				<i class="fa fa-envelope"></i>
+					<a href="mailto:support@company.com">support@apoline.com</a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<p class="footer-company-about">
+				<span>About Apotik Online</span>
+				Apotik Online the best for trading potion healing and pill healing. 
+			</p>
+
+			<div class="footer-icons">
+				<a href="#">
+					<i class="fa fa-facebook"></i>
+				</a>
+				<a href="#">
+					<i class="fa fa-twitter"></i>
+				</a>
+				<a href="#">
+					<i class="fa fa-instagram"></i>
+				</a>
+				<a href="#">
+					<i class="fa fa-whatsapp"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+	</footer>
+	</div>
 	<!-- copyright -->
 	<footer>
 	<div class="copy-right">
@@ -243,16 +298,16 @@
 
 	<!-- js-files -->
 	<!-- jquery -->
-	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="<?php echo base_url("js/jquery-2.1.4.min.js") ?>"></script>
 	<!-- //jquery -->
 
 	<!-- smoothscroll -->
-	<script src="js/SmoothScroll.min.js"></script>
+	<script src="<?php echo base_url("js/SmoothScroll.min.js") ?>"></script>
 	<!-- //smoothscroll -->
 
 	<!-- start-smooth-scrolling -->
-	<script src="js/move-top.js"></script>
-	<script src="js/easing.js"></script>
+	<script src="<?php echo base_url("js/move-top.js") ?>"></script>
+	<script src="<?php echo base_url("js/easing.js") ?>"></script>
 	<script>
 		jQuery(document).ready(function ($) {
 			$(".scroll").click(function (event) {
@@ -286,7 +341,7 @@
 	<!-- //smooth-scrolling-of-move-up -->
 
 	<!-- for bootstrap working -->
-	<script src="js/bootstrap.js"></script>
+	<script src="<?php echo base_url("js/bootstrap.js") ?>"></script>
 	<!-- //for bootstrap working -->
 	<!-- //js-files -->
 

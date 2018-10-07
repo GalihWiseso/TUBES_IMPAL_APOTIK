@@ -36,6 +36,73 @@
 		text-align: center;
 		color: white;
 	}
+	footer{
+		margin: 25px;
+	}
+	.smoke{
+		margin-top: 50px;
+		position: absolute;
+		top: 25%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+	.smoke span{
+		position: relative;
+		font-family: sans-serif;
+		font-weight: bold;
+		letter-spacing: 10px;
+		text-transform: uppercase;
+		font-size: 50px;
+		animation: animate 3s linear infinite;
+	}
+	.smoke span:nth-child(1){
+		animation-delay: 0s;
+	}
+	.smoke span:nth-child(2){
+		animation-delay: 0.1s;
+	}
+	.smoke span:nth-child(3){
+		animation-delay: 0.2s;
+	}
+	.smoke span:nth-child(4){
+		animation-delay: 0.3s;
+	}
+	.smoke span:nth-child(5){
+		animation-delay: 0.4s;
+	}
+	.smoke span:nth-child(6){
+		animation-delay: 0.5s;
+	}
+	.smoke span:nth-child(7){
+		animation-delay: 0.6s;
+	}
+	.smoke span:nth-child(8){
+		animation-delay: 0.7s;
+	}
+	.smoke span:nth-child(9){
+		animation-delay: 0.8s;
+	}
+	.smoke span:nth-child(10){
+		animation-delay: 0.9s;
+	}
+	.smoke span:nth-child(11){
+		animation-delay: 0.10s;
+	}
+
+	@keyframes animate{
+		0%{
+			filter: blur(0);
+		}
+		40%{
+			filter: blur(20px);
+		}
+		60%{
+			filter: blur(0);
+		}
+		100%{
+			filter: blur(0);
+		}
+	}
 </style>
 
 <body>
@@ -139,18 +206,22 @@
 			</div>
 		</div>
 	</div>
-	<div class="type" style="margin-top: 20px">
-		<div class="container">
-			<h3 class="tittle-w3l">Tambah Obat
-				<span class="heading-style">
-					<i></i>
-					<i></i>
-					<i></i>
-				</span>
-			</h3>
+	<div class="container" style="margin-top: 100px;">
+		<div class="smoke">
+			<span>T</span>
+			<span>A</span>
+			<span>M</span>
+			<span>B</span>
+			<span>A</span>
+			<span>H</span>
+			<span>_</span>
+			<span>O</span>
+			<span>B</span>
+			<span>A</span>
+			<span>T</span>
 		</div>
 	</div>
-	<div class="container" style="padding: 50px">
+	<div class="container" style="padding: 30px">
 
 		<form method="post" action="<?php echo base_url("C_admin/proses_tambah_obat") ?>">
 			<div class="input-group w3_w3layouts">
@@ -206,9 +277,9 @@
 				<td><?php echo $key->nama_obat; ?></td>
 				<td><?php echo $key->jenis; ?></td>
 				<td><?php echo $key->stock; ?></td>
-				<td><?php echo $key->harga; ?></td>
+				<td>Rp <?php echo $key->harga; ?>,00</td>
 				<td><?php echo $key->deskripsi; ?></td>
-				<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $key->no_obat; ?>"><i class="glyphicon glyphicon-pencil"></i></button>
+				<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit"><i class="glyphicon glyphicon-pencil"></i></button>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus<?php echo $key->no_obat; ?>"><i class="glyphicon glyphicon-trash"></i></button></td>
 			</tr>
 			</tbody>
@@ -219,21 +290,40 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"></button>
-                        <h4 class="modal-title">Edit Transaksi</h4>
+                        <h4 class="modal-title">Edit Data Obat</h4>
                     </div>
                     <div class="modal-footer">
-                        <form method="post" action="http://localhost/care1/C_transaksi/proses_update_pesanan">
-                        <input type="hidden" name="pesanan_id" value="<?php echo $key->pesanan_id; ?>">
-                        <div class="col-md-8">
-                        <center>
-                            <select class="form-control" name="proses">
-                                <option value="On Proses">On Proses</option>
-                                <option value="Delived">Delived</option>
-                                <option value="Done">Done</option>
-                            </select>
-                        </center>
-                        </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                        <form method="post">
+                        <input type="hidden" name="pesanan_id" value="<?php echo $key->no_obat; ?>">
+                        <div class="input-group w3_w3layouts">
+							<span class="input-group-addon" id="nama_obat">Nama</span>
+							<input type="text" class="form-control" name="nama_obat" placeholder="Nama Obat" aria-describedby="basic-addon1">
+						</div>
+						<div class="input-group w3_w3layouts">
+							<span class="input-group-addon" id="gambar">Input Gambar</span>
+							<input type="text" class="form-control" name="pict" placeholder="Gambar" aria-describedby="basic-addon1">
+						</div>
+						<div class="input-group w3_w3layouts">
+							<span class="input-group-addon" id="jenis">Jenis</span>
+							<input type="text" class="form-control" name="jenis" placeholder="Jenis Obat" aria-describedby="basic-addon1">
+						</div>
+						<div class="input-group w3_w3layouts">
+							<span class="input-group-addon" id="stock">Stock</span>
+							<input type="text" class="form-control" name="stock" placeholder="Stock" aria-describedby="basic-addon1">
+						</div>
+						<div class="input-group w3_w3layouts">
+							<span class="input-group-addon">Harga</span>
+							<input type="text" class="form-control" name="harga" aria-label="Amount (to the nearest dollar)">
+							<span class="input-group-addon">.00</span>
+						</div>
+						<div class="input-group w3_w3layouts">
+							<span class="input-group-addon" id="deskripsi">Deskripsi</span>
+							<input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi" aria-describedby="basic-addon1">
+						</div>
+						<div class="input-group w3-w3layouts col-md-12">
+							<input type='reset' class="btn btn-danger" style="width:45%;margin-right: 50px" value='Batal'/>
+            				<input type='submit' class="btn btn-primary" style="width:45%" value='Simpan'/>
+						</div>
                         </form>
                     </div>
                 </div>
@@ -258,8 +348,69 @@
         </div>
 		</div>
 	</div>
-	<br>
-	<br>
+	<div class="type" style="margin-top: 50px">
+		<div class="container">
+			<h3 class="tittle-w3l">Tambah Obat
+				<span class="heading-style">
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+			</h3>
+		</div>
+	</div>
+	<div class="row">
+	<footer class="footer-distributed" style="background-color: lightgrey;height: 200px;">
+	<div class="fluid-container" style="margin-top: -50px;">
+		<div class="col-md-4">
+		<h1>
+			<a>
+				<span style="color: red;">A</span>potik
+				<span style="color: red;">O</span>nline
+			</a>
+		</h1>
+		</div>
+
+		<div class="col-md-4">
+			<div>
+				<i class="fa fa-map-marker"></i>
+					<span> Jalan Telekomunikasi No 1</span> Bandung, Indonesia
+			</div>
+			<br>
+			<div>
+				<i class="fa fa-phone"></i>
+				+6281395939188
+			</div>
+			<br>
+			<div>
+				<i class="fa fa-envelope"></i>
+					<a href="mailto:support@company.com">support@apoline.com</a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<p class="footer-company-about">
+				<span>About Apotik Online</span>
+				Apotik Online the best for trading potion healing and pill healing. 
+			</p>
+
+			<div class="footer-icons">
+				<a href="#">
+					<i class="fa fa-facebook"></i>
+				</a>
+				<a href="#">
+					<i class="fa fa-twitter"></i>
+				</a>
+				<a href="#">
+					<i class="fa fa-instagram"></i>
+				</a>
+				<a href="#">
+					<i class="fa fa-whatsapp"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+	</footer>
+	</div>
 	<!-- copyright -->
 	<div class="copy-right">
 		<div class="container">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
  <head>
-	<title>Apotik Online | Profile | Komplain</title>
+	<title>Apotik Online | Checkout | Pembayaran</title>
 	<!--/tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -40,8 +40,8 @@
  <body>
 	<!-- top-header -->
 	<div class="header-most-top">
-		<p><span style="margin-left: 50px"><?php echo $this->session->userdata('nama') ?></span>
-			<a href="home.php" style="float: right; margin-right: 50px;">Logout</a>
+		<p><span style="margin-left: 50px"><?php echo $this->session->userdata('nama'); ?></span>
+			<a href="data_obat.html" style="float: right; margin-right: 50px;">Logout</a>
 		</p>
 		
 	</div>
@@ -110,21 +110,20 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	
 	<div class="services-breadcrumb">
 		<div class="agile_inner_breadcrumb">
 			<div class="container">
 				<ul class="w3_short">
 					<li>
-						<a href="<?php echo base_url("C_login/home") ?>">Home</a>
+						<a href="<?php echo base_url("C_admin/data_obat") ?>">Home</a>
 						<i>|</i>
 					</li>
 					<li>
-						<a href="<?php echo base_url("C_login/profile") ?>">Profile</a>
+						Checkout
 						<i>|</i>
 					</li>
 					<li>
-						Komplain
+						Pembayaran
 						<i>|</i>
 					</li>
 				</ul>
@@ -132,40 +131,62 @@
 		</div>
 	</div>
 	<div class="container" style="padding: 50px">
- 		<form>
-			<div class="input-group w3_w3layouts">
-				<span class="input-group-addon" id="nama_obat">Nama</span>
-				<input type="text" class="form-control" placeholder="Nama Obat" aria-describedby="basic-addon1">
-			</div>
-			<div class="input-group w3_w3layouts">
-				<span class="input-group-addon" id="jenis">Komplain</span>
-				<input type="text-area" class="form-control" placeholder="Komplain" aria-describedby="basic-addon1">
-			</div>
-			<div class="input-group w3-w3layouts col-md-12">
-				<input type='reset' class="btn btn-danger" style="width:50%" value='Batal'/>
-            	<button type='button' class="btn btn-primary" data-toggle="modal" data-target="#sukses" style="width:50%">Simpan</button>
-			</div>
-		</form>
+		
 	</div>
-	<div id="sukses" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"></button>
-                        <h4 class="modal-title">Successfull...</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <form method="post">
-                        <input type="hidden" name="no_pesanan" class="form-control" value=<?php echo "'".$key->no_komplain."'"; ?>>
-                        <button type="submit" class="btn btn-primary">Ok</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-    </div>
-    <div class="type" style="margin-top: 20px">
+	<!-- //page -->
+	<div class="container">
+		<div class="bs-docs-example">
+			<center>
+			<button class="btn btn-danger" style="width: 200px; height: 200px;border-radius: 10px;" data-target="#disini" data-toggle="modal">Bayar di tempat</button>
+			<button class="btn btn-primary" style="width: 200px; height: 200px;border-radius: 10px;" data-target="#transfer" data-toggle="modal">Bayar transfer</button>
+		</center>
+		</div>
+		<div class="modal fade" id="transfer" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							&times;
+						</button>
+						
+					</div>
+					<div class="modal-body">
+						<table>
+							<tr> BNI </tr>
+							<tr>
+								<td> a/n </td>
+								<td> : </td>
+								<td> anis canatiks </td>
+							</tr>
+							<tr>
+								<td> norek </td>
+								<td> : </td>
+								<td> 1234567 </td>
+							</tr>
+ 						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="disini" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							&times;
+						</button>
+					</div>
+					<div class="modal-body">
+						<h3>Successfull...</h3>
+						<h1>Di Tunggu yaa....</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="type" style="margin-top: 20px">
 		<div class="container">
-			<h3 class="tittle-w3l">Komplain
+			<h3 class="tittle-w3l">Pembayaran
 				<span class="heading-style">
 					<i></i>
 					<i></i>
@@ -174,7 +195,6 @@
 			</h3>
 		</div>
 	</div>
-	<!-- //page -->
 	<div class="row">
 	<footer class="footer-distributed" style="background-color: lightgrey;height: 200px;">
 	<div class="fluid-container" style="margin-top: -50px;">
@@ -262,7 +282,7 @@
 	</script> -->
 	<!-- //popup modal (for signin & signup)-->
  	<!-- cart-js -->
-	<script src="<?php echo base_url("js/minicart.js") ?>"></script>
+	<script src="js/minicart.js"></script>
 	<script>
 		paypalm.minicartk.render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
  		paypalm.minicartk.cart.on('checkout', function (evt) {

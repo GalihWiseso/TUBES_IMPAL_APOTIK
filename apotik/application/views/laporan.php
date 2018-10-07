@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
-	<title>Apotik Online | Laporan</title>
+	<title>Apotik Online | Admin | Laporan</title>
 	<!--/tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -34,6 +34,9 @@
 	th{
 		text-align: center;
 		color: white;
+	}
+	footer{
+		margin: 25px;
 	}
 </style>
 
@@ -132,17 +135,6 @@
 			</div>
 		</div>
 	</div>
-	<div class="type" style="margin-top: 20px">
-		<div class="container">
-			<h3 class="tittle-w3l">Laporan
-				<span class="heading-style">
-					<i></i>
-					<i></i>
-					<i></i>
-				</span>
-			</h3>
-		</div>
-	</div>
 	<div class="container" style="padding: 50px">
 
 		<form method="post" action="<?php echo base_url("C_admin/proses_tambah_obat") ?>">
@@ -173,11 +165,70 @@
 			</div>
 		</form>
 	</div>
+	<div class="type" style="margin-top: 20px">
+		<div class="container">
+			<h3 class="tittle-w3l">Laporan
+				<span class="heading-style">
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+			</h3>
+		</div>
+	</div>
 	<!-- //page -->
-	<br>
-	<br>
-	<br>
-	<br>
+	<div class="row">
+	<footer class="footer-distributed" style="background-color: lightgrey;height: 200px;">
+	<div class="fluid-container" style="margin-top: -50px;">
+		<div class="col-md-4">
+		<h1>
+			<a>
+				<span style="color: red;">A</span>potik
+				<span style="color: red;">O</span>nline
+			</a>
+		</h1>
+		</div>
+
+		<div class="col-md-4">
+			<div>
+				<i class="fa fa-map-marker"></i>
+					<span> Jalan Telekomunikasi No 1</span> Bandung, Indonesia
+			</div>
+			<br>
+			<div>
+				<i class="fa fa-phone"></i>
+				+6281395939188
+			</div>
+			<br>
+			<div>
+				<i class="fa fa-envelope"></i>
+					<a href="mailto:support@company.com">support@apoline.com</a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<p class="footer-company-about">
+				<span>About Apotik Online</span>
+				Apotik Online the best for trading potion healing and pill healing. 
+			</p>
+
+			<div class="footer-icons">
+				<a href="#">
+					<i class="fa fa-facebook"></i>
+				</a>
+				<a href="#">
+					<i class="fa fa-twitter"></i>
+				</a>
+				<a href="#">
+					<i class="fa fa-instagram"></i>
+				</a>
+				<a href="#">
+					<i class="fa fa-whatsapp"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+	</footer>
+	</div>
 	<!-- copyright -->
 	<div class="copy-right">
 		<div class="container">
@@ -191,73 +242,6 @@
 	<!-- jquery -->
 	<script src="<?php echo base_url("js/jquery-2.1.4.min.js") ?>"></script>
 	<!-- //jquery -->
-
-	<!-- popup modal (for signin & signup)-->
-	<script src="<?php echo base_url("js/jquery.magnific-popup.js") ?>"></script>
-	<script>
-		$(document).ready(function () {
-			$('.popup-with-zoom-anim').magnificPopup({
-				type: 'inline',
-				fixedContentPos: false,
-				fixedBgPos: true,
-				overflowY: 'auto',
-				closeBtnInside: true,
-				preloader: false,
-				midClick: true,
-				removalDelay: 300,
-				mainClass: 'my-mfp-zoom-in'
-			});
-
-		});
-	</script>
-	<!-- Large modal -->
-	<!-- <script>
-		$('#').modal('show');
-	</script> -->
-	<!-- //popup modal (for signin & signup)-->
-
-	<!-- cart-js -->
-	<script src="<?php echo base_url("js/minicart.js") ?>"></script>
-	<script>
-		paypalm.minicartk.render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
-
-		paypalm.minicartk.cart.on('checkout', function (evt) {
-			var items = this.items(),
-				len = items.length,
-				total = 0,
-				i;
-
-			// Count the number of each item in the cart
-			for (i = 0; i < len; i++) {
-				total += items[i].get('quantity');
-			}
-
-			if (total < 3) {
-				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-				evt.preventDefault();
-			}
-		});
-	</script>
-	<!-- //cart-js -->
-
-	<!-- password-script -->
-	<script>
-		window.onload = function () {
-			document.getElementById("password1").onchange = validatePassword;
-			document.getElementById("password2").onchange = validatePassword;
-		}
-
-		function validatePassword() {
-			var pass2 = document.getElementById("password2").value;
-			var pass1 = document.getElementById("password1").value;
-			if (pass1 != pass2)
-				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-			else
-				document.getElementById("password2").setCustomValidity('');
-			//empty string means no validation error
-		}
-	</script>
-	<!-- //password-script -->
 
 	<!-- smoothscroll -->
 	<script src="<?php echo base_url("js/SmoothScroll.min.js") ?>"></script>
