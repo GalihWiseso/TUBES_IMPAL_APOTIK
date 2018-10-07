@@ -15,11 +15,7 @@
         }
         public function index(){
             $data['data']=$this->m_obat->getobat();
-            $this->load->view('v_index',$data);
-        }
-        public function data_obat(){
-            $data['data']=$this->m_obat->getobat();
-            $this->load->view('data_obat',$data);
+            $this->load->view('tambahobat',$data);
         }
         public function searchmobil(){
             $this->load->view('searchmobil');
@@ -55,21 +51,9 @@
                 'deskripsi' => $this->input->post('deskripsi'),
                 'pict' => $this->input->post('pict'),
             );
-            $query
             $this->db->insert('obat',$data);
-
         redirect('C_admin/tambahobat');
 	    }
-	public function proses_tambah_komplain(){
-            $data = array(
-                'nama' => $this->input->post('nama'),
-                'komplain' => $this->input->post('komplain'),
-            );
-            $query
-            $this->db->insert('komplain',$data);
-        redirect('C_admin/tambahkomplain');
-	    }	
-		
         public function proses_update_obat(){
             $data = array(
                 'nama_obat' => $this->input->post('nama'),
