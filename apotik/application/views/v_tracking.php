@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="zxx">
 
 <head>
-	<title>Apotik Online | Tambah Obat</title>
+	<title>Apotik Online | Profile | Tracking</title>
 	<!--/tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -18,20 +18,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
 		}, false);
-
 		function hideURLbar() {
 			window.scrollTo(0, 1);
 		}
 	</script>
 	<!--//tags -->
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="css/font-awesome.css" rel="stylesheet">
+	<link href="<?php echo base_url("css/bootstrap.css") ?>" rel="stylesheet" type="text/css" media="all" />
+	<link href="<?php echo base_url("css/style.css") ?>" rel="stylesheet" type="text/css" media="all" />
+	<link href="<?php echo base_url("css/font-awesome.css") ?>" rel="stylesheet">
 	<!--pop-up-box-->
-	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="<?php echo base_url("css/popuo-box.css") ?>" rel="stylesheet" type="text/css" media="all" />
 	<!--//pop-up-box-->
 	<!-- price range -->
-	<link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url("css/jquery-ui1.css") ?>">
 	<!-- fonts -->
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 </head>
@@ -43,12 +42,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		text-align: center;
 		color: white;
 	}
+	footer{
+		margin: 25px;
+	}
 </style>
 
 <body>
 	<!-- top-header -->
 	<div class="header-most-top">
-		<p><span style="margin-left: 50px">Febry Triyadi</span>
+		<p><span style="margin-left: 50px"><?php echo $this->session->userdata('nama') ?></span>
 			<a href="data_obat.html" style="float: right; margin-right: 50px;">Logout</a>
 		</p>
 		
@@ -78,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- Teks bergerak -->
 			<div style="text-align: center; font-size: 50px; font-family: Comic Sans MS, cursive, sans-serif;color: orange">
 				<script language="JavaScript">
-    				var text="Welcome to Admin Apotik Online";
+    				var text="Welcome to <?php echo $this->session->userdata('nama') ?> Apotik Online";
     				var delay=30;
     				var currentChar=1;
    					var destination="[none]";
@@ -118,22 +120,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<!-- shop locator (popup) -->
-	<!-- Button trigger modal(shop-locator) -->
-	<!-- //shop locator (popup) -->
-	<!-- signin Model -->
-	<!-- Modal1 -->
-	<!-- //Modal1 -->
-	<!-- //signin Model -->
-	<!-- signup Model -->
-	<!-- Modal2 -->
-	<!-- //Modal2 -->
-	<!-- //signup Model -->
-	<!-- //header-bot -->
-	<!-- navigation -->
-	<!-- //navigation -->
-	<!-- banner-2 -->
-	<!-- //banner-2 -->
 	<!-- page -->
 	<div class="services-breadcrumb">
 		<div class="agile_inner_breadcrumb">
@@ -144,38 +130,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<i>|</i>
 					</li>
 					<li>
-						<a href="<?php echo base_url("C_admin/data_obat") ?>">Daftar Obat</a>
+						<a href="<?php echo base_url("C_admin/data_obat") ?>">Profile</a>
 						<i>|</i>
 					</li>
 					<li>
-						Pengadaan Obat
+						<a href="<?php echo base_url("C_admin/data_pesanan") ?>">Komplain</a>
 						<i>|</i>
 					</li>
 					<li>
-						<a href="<?php echo base_url("C_admin/data_pesanan") ?>">Daftar Pemesanan</a>
+						Tracking
 						<i>|</i>
 					</li>
 					<li>
-						<a href="<?php echo base_url("C_admin/laporan") ?>">Laporan</a>
-						<i>|</i>
-					</li>
-					<li>
-						<a href="<?php echo base_url("C_admin/data_komplain") ?>">Daftar Komplain</a>
+						<a href="<?php echo base_url("C_admin/data_komplain") ?>">Histori</a>
 						<i>|</i>
 					</li>
 				</ul>
 			</div>
-		</div>
-	</div>
-	<div class="type" style="margin-top: 20px">
-		<div class="container">
-			<h3 class="tittle-w3l">Backtreaking
-				<span class="heading-style">
-					<i></i>
-					<i></i>
-					<i></i>
-				</span>
-			</h3>
 		</div>
 	</div>
 	<div class="container" style="padding: 50px">
@@ -209,8 +180,69 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</table>
 		</div>
 	</div>
-	<br>
-	<br>
+	<div class="type" style="margin-top: 20px">
+		<div class="container">
+			<h3 class="tittle-w3l">Backtreaking
+				<span class="heading-style">
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+			</h3>
+		</div>
+	</div>
+	<div class="row">
+	<footer class="footer-distributed" style="background-color: lightgrey;height: 200px;">
+	<div class="fluid-container" style="margin-top: -50px;">
+		<div class="col-md-4">
+		<h1>
+			<a>
+				<span style="color: red;">A</span>potik
+				<span style="color: red;">O</span>nline
+			</a>
+		</h1>
+		</div>
+
+		<div class="col-md-4">
+			<div>
+				<i class="fa fa-map-marker"></i>
+					<span> Jalan Telekomunikasi No 1</span> Bandung, Indonesia
+			</div>
+			<br>
+			<div>
+				<i class="fa fa-phone"></i>
+				+6281395939188
+			</div>
+			<br>
+			<div>
+				<i class="fa fa-envelope"></i>
+					<a href="mailto:support@company.com">support@apoline.com</a>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<p class="footer-company-about">
+				<span>About Apotik Online</span>
+				Apotik Online the best for trading potion healing and pill healing. 
+			</p>
+
+			<div class="footer-icons">
+				<a href="#">
+					<i class="fa fa-facebook"></i>
+				</a>
+				<a href="#">
+					<i class="fa fa-twitter"></i>
+				</a>
+				<a href="#">
+					<i class="fa fa-instagram"></i>
+				</a>
+				<a href="#">
+					<i class="fa fa-whatsapp"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+	</footer>
+	</div>
 	<!-- copyright -->
 	<div class="copy-right">
 		<div class="container">
@@ -222,11 +254,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<!-- js-files -->
 	<!-- jquery -->
-	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="<?php echo base_url("js/jquery-2.1.4.min.js") ?>"></script>
 	<!-- //jquery -->
 
 	<!-- popup modal (for signin & signup)-->
-	<script src="js/jquery.magnific-popup.js"></script>
+	<script src="<?php echi base_url("js/jquery.magnific-popup.js") ?>"></script>
 	<script>
 		$(document).ready(function () {
 			$('.popup-with-zoom-anim').magnificPopup({
@@ -240,70 +272,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				removalDelay: 300,
 				mainClass: 'my-mfp-zoom-in'
 			});
-
 		});
 	</script>
-	<!-- Large modal -->
-	<!-- <script>
-		$('#').modal('show');
-	</script> -->
-	<!-- //popup modal (for signin & signup)-->
-
-	<!-- cart-js -->
-	<script src="js/minicart.js"></script>
-	<script>
-		paypalm.minicartk.render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
-
-		paypalm.minicartk.cart.on('checkout', function (evt) {
-			var items = this.items(),
-				len = items.length,
-				total = 0,
-				i;
-
-			// Count the number of each item in the cart
-			for (i = 0; i < len; i++) {
-				total += items[i].get('quantity');
-			}
-
-			if (total < 3) {
-				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-				evt.preventDefault();
-			}
-		});
-	</script>
-	<!-- //cart-js -->
-
-	<!-- password-script -->
-	<script>
-		window.onload = function () {
-			document.getElementById("password1").onchange = validatePassword;
-			document.getElementById("password2").onchange = validatePassword;
-		}
-
-		function validatePassword() {
-			var pass2 = document.getElementById("password2").value;
-			var pass1 = document.getElementById("password1").value;
-			if (pass1 != pass2)
-				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-			else
-				document.getElementById("password2").setCustomValidity('');
-			//empty string means no validation error
-		}
-	</script>
-	<!-- //password-script -->
 
 	<!-- smoothscroll -->
-	<script src="js/SmoothScroll.min.js"></script>
+	<script src="<?php echo base_url("js/SmoothScroll.min.js") ?>"></script>
 	<!-- //smoothscroll -->
 
 	<!-- start-smooth-scrolling -->
-	<script src="js/move-top.js"></script>
-	<script src="js/easing.js"></script>
+	<script src="<?php echo base_url("js/move-top.js") ?>"></script>
+	<script src="<?php echo base_url("js/easing.js") ?>"></script>
 	<script>
 		jQuery(document).ready(function ($) {
 			$(".scroll").click(function (event) {
 				event.preventDefault();
-
 				$('html,body').animate({
 					scrollTop: $(this.hash).offset().top
 				}, 1000);
@@ -326,13 +308,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			$().UItoTop({
 				easingType: 'easeOutQuart'
 			});
-
 		});
 	</script>
 	<!-- //smooth-scrolling-of-move-up -->
 
 	<!-- for bootstrap working -->
-	<script src="js/bootstrap.js"></script>
+	<script src="<?php echo base_url("js/bootstrap.js") ?>"></script>
 	<!-- //for bootstrap working -->
 	<!-- //js-files -->
 
