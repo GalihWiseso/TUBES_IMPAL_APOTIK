@@ -39,77 +39,13 @@
 	footer{
 		margin: 25px;
 	}
-	.smoke{
-		margin-top: 50px;
-		position: absolute;
-		top: 25%;
-		left: 50%;
-		transform: translate(-50%,-50%);
-	}
-	.smoke span{
-		position: relative;
-		font-family: sans-serif;
-		font-weight: bold;
-		letter-spacing: 10px;
-		text-transform: uppercase;
-		font-size: 50px;
-		animation: animate 3s linear infinite;
-	}
-	.smoke span:nth-child(1){
-		animation-delay: 0s;
-	}
-	.smoke span:nth-child(2){
-		animation-delay: 0.1s;
-	}
-	.smoke span:nth-child(3){
-		animation-delay: 0.2s;
-	}
-	.smoke span:nth-child(4){
-		animation-delay: 0.3s;
-	}
-	.smoke span:nth-child(5){
-		animation-delay: 0.4s;
-	}
-	.smoke span:nth-child(6){
-		animation-delay: 0.5s;
-	}
-	.smoke span:nth-child(7){
-		animation-delay: 0.6s;
-	}
-	.smoke span:nth-child(8){
-		animation-delay: 0.7s;
-	}
-	.smoke span:nth-child(9){
-		animation-delay: 0.8s;
-	}
-	.smoke span:nth-child(10){
-		animation-delay: 0.9s;
-	}
-	.smoke span:nth-child(11){
-		animation-delay: 0.10s;
-	}
-
-	@keyframes animate{
-		0%{
-			filter: blur(0);
-		}
-		40%{
-			filter: blur(20px);
-		}
-		60%{
-			filter: blur(0);
-		}
-		100%{
-			filter: blur(0);
-		}
-	}
 </style>
 
-<body>
+<body style="width: 100%; position: relative;">
 	<!-- top-header -->
 	<div class="header-most-top">
 		<p><span style="margin-left: 50px">Admin</span>
-			<a href="data_obat.html" style="float: right; margin-right: 50px;">Logout</a>
+			<a href="<?php echo base_url("C_login/logout") ?>" style="float: right; margin-right: 50px;">Logout</a>
 		</p>	
 	</div>
 	<!-- //top-header -->
@@ -204,21 +140,6 @@
 					</li>
 				</ul>
 			</div>
-		</div>
-	</div>
-	<div class="container" style="margin-top: 100px;">
-		<div class="smoke">
-			<span>T</span>
-			<span>A</span>
-			<span>M</span>
-			<span>B</span>
-			<span>A</span>
-			<span>H</span>
-			<span>_</span>
-			<span>O</span>
-			<span>B</span>
-			<span>A</span>
-			<span>T</span>
 		</div>
 	</div>
 	<div class="container" style="padding: 30px">
@@ -359,8 +280,8 @@
 			</h3>
 		</div>
 	</div>
-	<div class="row">
-	<footer class="footer-distributed" style="background-color: lightgrey;height: 200px;">
+	<div class="row" style="width: 100%;">
+	<footer class="footer-distributed" style="background-color: lightgrey;height: 200px; width: 99%">
 	<div class="fluid-container" style="margin-top: -50px;">
 		<div class="col-md-4">
 		<h1>
