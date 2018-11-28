@@ -5,39 +5,47 @@ class C_login extends CI_Controller{
   function __construct(){
     parent::__construct();
     $this->load->model('M_user'); 
+    $this->load->model('m_obat');
     $this->load->library('form_validation');
     $this->load->helper(array('form', 'url'));
     $this->load->library('session');
   }
  
-  function index(){
-    $this->load->view('profile');
+  public function index(){
+    if($this->session->userdata('posisi')=='product'){
+      #echo $this->session->userdata('posisi');
+      $data['data']=$this->m_obat->getobat();
+      $this->load->view('product',$data);
+    }else $this->load->view('index');
   }
+#  public function product(){
+#    $this->load->view('product');
+#  }
   public function komplain(){
-    $this->load->view('v_komplain');
+    $this->load->view('komplain');
   }
   public function pembayaran(){
     $this->load->view('pembayaran');
   }
-  function t_registrasi(){
-    $this->load->view('v_registrasi');
-  }
   public function profile(){
-            $this->load->view('profile');
+    $this->load->view('profile');
+  }
+  public function single(){
+    $this->load->view('single');
   } 
   public function proses(){
 
                         $data = [
+              'BPJS'=>$this->input->post('BPJS'),
               'nama'=>$this->input->post('nama'),
               'email'=>$this->input->post('email'),
-              'alamat'=>$this->input->post('alamat'),
-              'phone'=>$this->input->post('phone'),
+              'notlp'=>$this->input->post('notlp'),
               'password'=>$this->input->post('password')
             ];
-            $tambah = $this->M_akun->register($data);
+            $tambah = $this->M_user->register($data);
             if($tambah){
               $this->session->set_flashdata('message', 'berhasil');
-              redirect('C_login');
+              redirect('C_login/index');
             }else{
               echo "gagal";   
                 }
@@ -62,29 +70,33 @@ class C_login extends CI_Controller{
 
         $uid = $this->input->post('email');
         $pwd = $this->input->post('password');
-    $hasil=$this->M_akun->login($uid,$pwd);
+    $hasil=$this->M_user->login($uid,$pwd);
     if($uid=='admin@admin.com' and $pwd=='admin'){
       redirect('C_admin/tambahobat');
     }
     else if ($hasil['exist']>0) {
-      $data = $this->M_akun->profile($uid,$pwd);
+      $data = $this->M_user->profile($uid,$pwd);
       $data_sess = array(
+        'BPJS' => $data['BPJS'],
         'nama' => $data['nama'],
         'email' => $data['email'],
-        'alamat' => $data['alamat'],
-        'phone' => $data['phone'],
-        'password' => $data['password']
+        'notlp' => $data['notlp'],
+        'password' => $data['password'],
+        'posisi' => 'product'
       );
       $this->session->set_userdata($data_sess);
-      redirect('C_login');
+      redirect('');
+      #$this->index();
     }
     else {
       $this->session->set_flashdata('message', 'login anda salah, silahkan login kembali');     
-      redirect('C_login');
+      #echo "gagal";
+      redirect('');
+      #$this->index();
     } 
   }
   public function logout(){
     $this->session->sess_destroy();
-    redirect('C_login/index');
+    redirect('');
   }
 }
