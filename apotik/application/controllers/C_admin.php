@@ -54,6 +54,22 @@
             $this->db->insert('obat',$data);
         redirect('C_admin/tambahobat');
 	    }
+        public function proses_laporan(){
+            $data = array(
+                'nama_laporan' => $this->input->post('nama_laporan'),
+                'nama_obat' => $this->input->post('nama_obat'),
+                'tanggal' => $this->input->post('tanggal'),
+                'jumlah' => $this->input->post('jumlah'),
+                'total_harga' => $this->input->post('total_harga'),
+            );
+            $query = $this->db->insert('laporan',$data);
+            if (!$query){
+                echo "<script>alert('Gagal menambahkan!');history.go(-1) </script>";
+            } else if ($query) {
+                echo "<script>alert('Berhasil menambahkan!');history.go(-1) </script>";
+            }
+        redirect('C_admin/laporan');
+        }
         public function proses_update_obat(){
             $data = array(
                 'nama_obat' => $this->input->post('nama'),
