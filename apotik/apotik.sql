@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 07 Okt 2018 pada 06.31
--- Versi Server: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: Dec 05, 2018 at 02:04 PM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `komplain`
+-- Table structure for table `komplain`
 --
 
 CREATE TABLE `komplain` (
@@ -35,7 +35,7 @@ CREATE TABLE `komplain` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `laporan`
+-- Table structure for table `laporan`
 --
 
 CREATE TABLE `laporan` (
@@ -51,7 +51,7 @@ CREATE TABLE `laporan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `obat`
+-- Table structure for table `obat`
 --
 
 CREATE TABLE `obat` (
@@ -65,16 +65,20 @@ CREATE TABLE `obat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `obat`
+-- Dumping data for table `obat`
 --
 
 INSERT INTO `obat` (`no_obat`, `nama_obat`, `jenis`, `stock`, `harga`, `deskripsi`, `pict`) VALUES
-(0, 'Panadol', 'Sakit kepala', 50, 5000, 'Obat penawar sakit kepala sebelah', 'pict.jpg');
+(1, 'Panadol', 'Obat Pusing', 20, 25000, 'Panadol meredakan sakit kepala, sakit gigi, sakit pada otot, nyeri yang mengganggu dan menurunkan demam secara cepat dan efektif. Panadol ramah bagi lambung jika diminum sesuai dosis dan aturan pakai.', 'panadol.jpg'),
+(2, 'Paramex', 'Obat pusing', 20, 3000, 'Pusing kepala minum paramex', 'paramex.jpg'),
+(3, 'Neozep', 'Obat flu', 30, 5000, 'Pilek minum neozep', 'neozep.jpg'),
+(4, 'Actifed', 'Obat flu', 40, 5000, 'obat', 'actifed.jpg'),
+(5, 'Konidin', 'Obat batuk', 40, 4500, 'Obat batuk', 'konidin.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pesanan`
+-- Table structure for table `pesanan`
 --
 
 CREATE TABLE `pesanan` (
@@ -93,7 +97,7 @@ CREATE TABLE `pesanan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `staff`
+-- Table structure for table `staff`
 --
 
 CREATE TABLE `staff` (
@@ -107,7 +111,7 @@ CREATE TABLE `staff` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `supplier`
+-- Table structure for table `supplier`
 --
 
 CREATE TABLE `supplier` (
@@ -121,7 +125,7 @@ CREATE TABLE `supplier` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -131,6 +135,13 @@ CREATE TABLE `user` (
   `notlp` varchar(12) NOT NULL,
   `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`BPJS`, `nama`, `email`, `notlp`, `password`) VALUES
+(1301164355, 'Linggis Galih', 'galihwiseso@gmail.com', '082225097909', '123');
 
 --
 -- Indexes for dumped tables
@@ -193,23 +204,23 @@ ALTER TABLE `user`
 ALTER TABLE `komplain`
   MODIFY `no_komplain` int(20) NOT NULL AUTO_INCREMENT;
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `komplain`
+-- Constraints for table `komplain`
 --
 ALTER TABLE `komplain`
   ADD CONSTRAINT `komplain_ibfk_1` FOREIGN KEY (`BPJS`) REFERENCES `user` (`BPJS`);
 
 --
--- Ketidakleluasaan untuk tabel `laporan`
+-- Constraints for table `laporan`
 --
 ALTER TABLE `laporan`
   ADD CONSTRAINT `laporan_ibfk_1` FOREIGN KEY (`no_obat`) REFERENCES `obat` (`no_obat`);
 
 --
--- Ketidakleluasaan untuk tabel `pesanan`
+-- Constraints for table `pesanan`
 --
 ALTER TABLE `pesanan`
   ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`BPJS`) REFERENCES `user` (`BPJS`),
