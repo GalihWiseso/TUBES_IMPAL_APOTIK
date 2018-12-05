@@ -1,4 +1,4 @@
-<?php 
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_obat extends CI_Model {
@@ -6,7 +6,7 @@ class M_obat extends CI_Model {
     public function getobat() {
         return $this->db->query("select * from obat")->result();
     }
-	public function delete_obat($no_obat){
+	  public function delete_obat($no_obat){
         $table = 'obat';
         $this->db->where('no_obat', $no_obat);
         $delete = $this->db->delete($table);
@@ -17,4 +17,12 @@ class M_obat extends CI_Model {
             return FALSE;
         }
     }
+function getNoObat($no_obat) {
+
+#  $this->db->select('*');
+#  $this->db->where('nama_obat',$no_obat);
+#  return $this->db->get('obat')->result();
+  return $this->db->query("select * from obat where no_obat = '$no_obat'")->result();
+
+  }
 }
