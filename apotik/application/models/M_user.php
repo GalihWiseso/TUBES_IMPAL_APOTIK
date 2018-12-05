@@ -20,4 +20,5 @@ class M_user extends CI_Model {
 		$Q->free_result();
 		return $data;
 	}
+	
 }
