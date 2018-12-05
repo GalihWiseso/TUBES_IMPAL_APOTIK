@@ -156,10 +156,8 @@
 			<div class="col-md-5 single-right-left ">
 				<div class="grid images_3_of_2">
 					<div class="flexslider">
-								<div class="thumb-image">
+								<div class="thumb-image" style="margin-top: -220px;">
 									<img src="<?php echo base_url("css/img/$key->pict") ?>" data-imagezoom="true" class="img-responsive" alt=""> </div>
-
-
 
 						<div class="clearfix"></div>
 					</div>
@@ -425,7 +423,6 @@
 				removalDelay: 300,
 				mainClass: 'my-mfp-zoom-in'
 			});
-
 		});
 	</script>
 	<!-- Large modal -->
@@ -438,18 +435,15 @@
 	<script src="js/minicart.js"></script>
 	<script>
 		paypalm.minicartk.render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
-
 		paypalm.minicartk.cart.on('checkout', function (evt) {
 			var items = this.items(),
 				len = items.length,
 				total = 0,
 				i;
-
 			// Count the number of each item in the cart
 			for (i = 0; i < len; i++) {
 				total += items[i].get('quantity');
 			}
-
 			if (total < 3) {
 				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
 				evt.preventDefault();
@@ -464,7 +458,6 @@
 			document.getElementById("password1").onchange = validatePassword;
 			document.getElementById("password2").onchange = validatePassword;
 		}
-
 		function validatePassword() {
 			var pass2 = document.getElementById("password2").value;
 			var pass1 = document.getElementById("password1").value;
@@ -488,7 +481,6 @@
 		jQuery(document).ready(function ($) {
 			$(".scroll").click(function (event) {
 				event.preventDefault();
-
 				$('html,body').animate({
 					scrollTop: $(this.hash).offset().top
 				}, 1000);
@@ -511,7 +503,6 @@
 			$().UItoTop({
 				easingType: 'easeOutQuart'
 			});
-
 		});
 	</script>
 	<!-- //smooth-scrolling-of-move-up -->
@@ -559,7 +550,6 @@
 					}
 				}
 			});
-
 		});
 	</script>
 	<!-- //flexisel (for special offers) -->

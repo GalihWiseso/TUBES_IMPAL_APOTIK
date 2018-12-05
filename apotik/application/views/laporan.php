@@ -44,7 +44,7 @@
 	<!-- top-header -->
 	<div class="header-most-top">
 		<p><span style="margin-left: 50px"><?php echo $this->session->userdata('nama') ?>Admin</span>
-			<a href="data_obat.html" style="float: right; margin-right: 50px;">Logout</a>
+			<a href="<?php echo base_url("C_login/logout") ?>" style="float: right; margin-right: 50px;">Logout</a>
 		</p>	
 	</div>
 	<!-- //top-header -->
@@ -64,7 +64,7 @@
 			<!-- header-bot -->
 			<div class="col-md-8 header">
 				<!-- Teks bergerak -->
-			<div style="text-align: center; font-size: 50px; font-family: Comic Sans MS, cursive, sans-serif;color: orange">
+			<div style="text-align: center; font-size: 40px; font-family: Comic Sans MS, cursive, sans-serif;color: orange">
 				<script language="JavaScript">
     				var text="Welcome to Admin Apotik Online";
     				var delay=30;
@@ -137,10 +137,14 @@
 	</div>
 	<div class="container" style="padding: 50px">
 
-		<form method="post" action="<?php echo base_url("C_admin/proses_tambah_obat") ?>">
+		<form method="post" action="<?php echo base_url("C_admin/proses_laporan") ?>">
 			<div class="input-group w3_w3layouts">
 				<span class="input-group-addon" id="nama_laporan">Nama Laporan</span>
-				<input type="text" class="form-control" name="nama_laporan" placeholder="Pengadaan" aria-describedby="basic-addon1">
+				<select name="nama_laporan" style="width: 100%; padding: 2px;">
+					<option value="" required="">Select</option>
+					<option value="tambah obat" required="">Pengadaan Obat</option>
+					<option value="obat terjual" required="">Obat terjual</option>
+				</select>
 			</div>
 			<div class="input-group w3_w3layouts">
 				<span class="input-group-addon" id="nama_obat">Nama Obat</span>
@@ -148,7 +152,7 @@
 			</div>
 			<div class="input-group w3_w3layouts">
 				<span class="input-group-addon" id="tanggal">Tanggal</span>
-				<input type="date" class="form-control" name="tanggal" placeholder="Tanggal Laporan" aria-describedby="basic-addon1">
+				<input type="date" class="form-control" name="tanggal" placeholder="" value="<?php echo date("Y-m-d"); ?>" aria-describedby="basic-addon1">
 			</div>
 			<div class="input-group w3_w3layouts">
 				<span class="input-group-addon" id="jumlah">Jumlah</span>

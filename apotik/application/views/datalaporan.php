@@ -43,7 +43,7 @@
 <body>
 	<!-- top-header -->
 	<div class="header-most-top">
-		<p><span style="margin-left: 50px">Supplier</span>
+		<p><span style="margin-left: 50px">Manager</span>
 			<a href="<?php echo base_url('C_login/logout') ?>" style="float: right; margin-right: 50px;">Logout</a>
 		</p>
 	</div>
@@ -57,7 +57,7 @@
 					<a href="index.html">
 						<span>A</span>potik
 						<span>O</span>nline
-						<img src="http://localhost/apotik/css/img/obatpil.jpg" alt=" " style="width: 130px">
+						<img src="<?php echo base_url("css/img/obatpil.jpg") ?>" alt=" " style="width: 130px">
 					</a>
 				</h1>
 			</div>
@@ -72,7 +72,7 @@
 				<!-- Teks bergerak -->
 			<div style="text-align: center; font-size: 40px; font-family: Comic Sans MS, cursive, sans-serif;color: orange">
 				<script language="JavaScript">
-    				var text="Welcome to Supplier Apotik Online";
+    				var text="Welcome to Manager Apotik Online";
     				var delay=30;
     				var currentChar=1;
    					var destination="[none]";
@@ -118,7 +118,7 @@
 			<div class="container">
 				<ul class="w3_short">
 					<li>
-						<a href="<?php echo base_url("C_supplier/data_obat") ?>">Home</a>
+						<a href="<?php echo base_url("C_manager/index") ?>">Home</a>
 						<i>|</i>
 					</li>
 					<li>Daftar Obat
@@ -134,23 +134,23 @@
 		<table class="table table-striped">
 			<thead>
 			<tr>
-				<th>ID Obat</th>
+				<th>No Laporan</th>
+				<th>Nama Laporan</th>
 				<th>Nama Obat</th>
-				<th>Jenis Obat</th>
-				<th>Stock</th>
-				<th>Harga</th>
-				<th>Deskripsi</th>
+				<th>Jumlah</th>
+				<th>Tanggal</th>
+				<th>Total Harga</th>
 			</tr>
 			</thead>
 				<?php foreach ($data as $key): ?>
 			<tbody>
 			<tr>	
-				<td>OBT<?php echo $key->no_obat; ?></td>
+				<td>LAP<?php echo $key->no_laporan; ?></td>
+				<td><?php echo $key->nama_laporan; ?></td>
 				<td><?php echo $key->nama_obat; ?></td>
-				<td><?php echo $key->jenis; ?></td>
-				<td><?php echo $key->stock; ?></td>
-				<td>Rp <?php echo $key->harga; ?>,00</td>
-				<td><?php echo $key->deskripsi; ?></td>
+				<td><?php echo $key->jumlah; ?></td>
+				<td><?php echo $key->tanggal; ?></td>
+				<td>Rp. <?php echo $key->total_harga; ?>,00</td>
 			</tr>
 			</tbody>
 				<?php endforeach; ?>

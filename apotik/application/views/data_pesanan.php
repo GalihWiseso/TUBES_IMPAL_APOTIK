@@ -70,7 +70,7 @@
 				
 				<!-- //search -->
 				<!-- Teks bergerak -->
-			<div style="text-align: center; font-size: 50px; font-family: Comic Sans MS, cursive, sans-serif;color: orange">
+			<div style="text-align: center; font-size: 40px; font-family: Comic Sans MS, cursive, sans-serif;color: orange">
 				<script language="JavaScript">
     				var text="Welcome to Admin Apotik Online";
     				var delay=30;

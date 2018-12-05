@@ -65,9 +65,9 @@
 			<!-- header-bot -->
 			<div class="col-md-8 header">
 				<!-- Teks bergerak -->
-			<div style="text-align: center; font-size: 50px; font-family: Comic Sans MS, cursive, sans-serif;color: orange">
+			<div style="text-align: center; font-size: 30px; font-family: Comic Sans MS, cursive, sans-serif;color: orange">
 				<script language="JavaScript">
-    				var text="Welcome to <?php echo $this->session->userdata('nama'); ?> Apotik Online";
+    				var text="Welcome <?php echo $this->session->userdata('nama'); ?> to Apotik Online";
     				var delay=30;
     				var currentChar=1;
    					var destination="[none]";
@@ -113,7 +113,7 @@
 			<div class="container">
 				<ul class="w3_short">
 					<li>
-						<a href="<?php echo base_url("C_admin/tambahobat") ?>">Home</a>
+						<a href="<?php echo base_url("C_login/index") ?>">Home</a>
 						<i>|</i>
 					</li>
 					<li>
@@ -121,15 +121,15 @@
 						<i>|</i>
 					</li>
 					<li>
-						<a href="<?php echo base_url("C_admin/data_pesanan") ?>">Komplain</a>
+						<a href="<?php echo base_url("C_login/komplain") ?>">Komplain</a>
 						<i>|</i>
 					</li>
 					<li>
-						<a href="<?php echo base_url("C_admin/data_pesanan") ?>">Backtraking</a>
+						<a href="<?php echo base_url("C_login/backtraking") ?>">Backtraking</a>
 						<i>|</i>
 					</li>
 					<li>
-						<a href="<?php echo base_url("C_admin/data_komplain") ?>">Histori</a>
+						<a href="<?php echo base_url("C_login/data_komplain") ?>">Histori</a>
 						<i>|</i>
 					</li>
 				</ul>
@@ -156,11 +156,11 @@
 		</table>
 		</form>	
 	</div>
-	<div class="col-md-4" style="background-color: lightgrey; width: 300px; height: 300px; border:1; padding:25px;margin: 25px;">
+	<div class="col-md-4" style="background-color: lightgrey; width: 350px; height: 300px; border:1; padding:25px;margin: 25px;">
 		<form>
 		<table class="table table-striped">
 			<thead>
-				<tr>
+				<tr style="width: auto;">
 					<th>Email</th>
 					<th> : </th>
 					<th><?php echo $this->session->userdata('email') ?></th>
@@ -168,8 +168,8 @@
 				<tr>
 					<th>Notlp</th>
 					<th> : </th>
-					<th><?php echo $this->session->userdata('notlp') ?></th>
-					<th><a href="#" style="float: right;">Edit</a></th>
+					<th><?php echo $this->session->userdata('notlp') ?>
+					<a href="#" style="margin-left: 20px;">Edit</a></th>
 				</tr>
 			</thead>
 		</table>
@@ -202,58 +202,159 @@
 		</div>
 	</div>
 	<!-- //page -->
-	<div class="row">
-	<footer class="footer-distributed" style="background-color: lightgrey;height: 200px;">
-	<div class="fluid-container" style="margin-top: -50px;">
-		<div class="col-md-4">
-		<h1>
-			<a>
-				<span style="color: red;">A</span>potik
-				<span style="color: red;">O</span>nline
-			</a>
-		</h1>
-		</div>
+	<footer>
+		<div class="container">
+			<!-- footer first section -->
+			<!-- //footer first section -->
+			<!-- footer second section -->
+			<div class="w3l-grids-footer">
+				<div class="col-xs-4 offer-footer">
+					<div class="col-xs-4 icon-fot">
+						<span class="fa fa-map-marker" aria-hidden="true"></span>
+					</div>
+					<div class="col-xs-8 text-form-footer">
+						<h3>Track Your Order</h3>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-xs-4 offer-footer">
+					<div class="col-xs-4 icon-fot">
+						<span class="fa fa-refresh" aria-hidden="true"></span>
+					</div>
+					<div class="col-xs-8 text-form-footer">
+						<h3>Free & Easy Returns</h3>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-xs-4 offer-footer">
+					<div class="col-xs-4 icon-fot">
+						<span class="fa fa-times" aria-hidden="true"></span>
+					</div>
+					<div class="col-xs-8 text-form-footer">
+						<h3>Online cancellation </h3>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<!-- //footer second section -->
+			<!-- footer third section -->
+			<div class="footer-info w3-agileits-info">
+				<!-- footer categories -->
+				<div class="col-sm-5 address-right">
+					<div class="col-xs-6 footer-grids">
+						<h3>Categories</h3>
+						<ul>
+							<li>
+								<a href="product.html">Obat Batuk</a>
+							</li>
+							<li>
+								<a href="product.html">Obat Flu</a>
+							</li>
 
-		<div class="col-md-4">
-			<div>
-				<i class="fa fa-map-marker"></i>
-					<span> Jalan Telekomunikasi No 1</span> Bandung, Indonesia
+						</ul>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<!-- //footer categories -->
+				<!-- quick links -->
+				<div class="col-sm-5 address-right">
+					<div class="col-xs-6 footer-grids">
+						<h3>Quick Links</h3>
+						<ul>
+							<li>
+								<a href="about.html">About Us</a>
+							</li>
+							<li>
+								<a href="contact.html">Contact Us</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-6 footer-grids">
+						<h3>Get in Touch</h3>
+						<ul>
+							<li>
+								<i class="fa fa-map-marker"></i> Jalan Telekomunikasi No 1 Bandung, Indonesia.</li>
+							<li>
+								<i class="fa fa-mobile"></i> 0813 9593 9188 </li>
+							<li>
+								<i class="fa fa-phone"></i> +6281 3953 9188 </li>
+							<li>
+								<i class="fa fa-envelope-o"></i>
+								<a href="gmailto:triyadifebry@gmail.com"> triyadifebry@gmail.com</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- //quick links -->
+				<!-- social icons -->
+				<div class="col-sm-2 footer-grids  w3l-socialmk">
+					<h3>Follow Us on</h3>
+					<div class="social">
+						<ul>
+							<li>
+								<a class="icon fb" href="#">
+									<i class="fa fa-facebook"></i>
+								</a>
+							</li>
+							<li>
+								<a class="icon tw" href="#">
+									<i class="fa fa-twitter"></i>
+								</a>
+							</li>
+							<li>
+								<a class="icon gp" href="#">
+									<i class="fa fa-google-plus"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- //social icons -->
+				<div class="clearfix"></div>
 			</div>
-			<br>
-			<div>
-				<i class="fa fa-phone"></i>
-				+6281395939188
-			</div>
-			<br>
-			<div>
-				<i class="fa fa-envelope"></i>
-					<a href="mailto:support@company.com">support@apoline.com</a>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<p class="footer-company-about">
-				<span>About Apotik Online</span>
-				Apotik Online the best for trading potion healing and pill healing. 
-			</p>
+			<!-- //footer third section -->
+			<!-- footer fourth section (text) -->
+			<div class="agile-sometext">
 
-			<div class="footer-icons">
-				<a href="#">
-					<i class="fa fa-facebook"></i>
-				</a>
-				<a href="#">
-					<i class="fa fa-twitter"></i>
-				</a>
-				<a href="#">
-					<i class="fa fa-instagram"></i>
-				</a>
-				<a href="#">
-					<i class="fa fa-whatsapp"></i>
-				</a>
+				<!-- payment -->
+				<div class="sub-some child-momu">
+					<h5>Payment Method</h5>
+					<ul>
+						<li>
+							<img src="images/pay2.png" alt="">
+						</li>
+						<li>
+							<img src="images/pay5.png" alt="">
+						</li>
+						<li>
+							<img src="images/pay1.png" alt="">
+						</li>
+						<li>
+							<img src="images/pay4.png" alt="">
+						</li>
+						<li>
+							<img src="images/pay6.png" alt="">
+						</li>
+						<li>
+							<img src="images/pay3.png" alt="">
+						</li>
+						<li>
+							<img src="images/pay7.png" alt="">
+						</li>
+						<li>
+							<img src="images/pay8.png" alt="">
+						</li>
+						<li>
+							<img src="images/pay9.png" alt="">
+						</li>
+					</ul>
+				</div>
+				<!-- //payment -->
 			</div>
+			<!-- //footer fourth section (text) -->
 		</div>
-	</div>
 	</footer>
-	</div>
 	<!-- copyright -->
 	<div class="copy-right">
 		<div class="container">
